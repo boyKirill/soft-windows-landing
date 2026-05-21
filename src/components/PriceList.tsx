@@ -4,7 +4,7 @@ import { Check } from 'lucide-react';
 
 export default function PriceList() {
   return (
-    <section id="pricing" className="py-24 bg-foreground text-white">
+    <section id="pricing" className="py-24 bg-accent text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
