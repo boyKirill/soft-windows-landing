@@ -8,7 +8,3 @@ build:
   command: npm run build
 run:
   command: npm run start
-  persistence:
-    - mountPath: /data
-      name: data
-      
