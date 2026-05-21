@@ -43,7 +43,7 @@ export default function BeforeAfterSlider() {
   };
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-stone-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
@@ -66,28 +66,36 @@ export default function BeforeAfterSlider() {
             onTouchEnd={handleMouseUp}
             onTouchMove={(e: ReactTouchEvent) => handleMove(e.touches[0].clientX)}
           >
-            {/* After Image (Background) */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center pointer-events-none"
-              style={{ backgroundImage: `url(${SLIDES[currentSlide].after})` }}
-            >
-              <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
-                ПОСЛЕ
-              </div>
-            </div>
+            {/* Slides with smooth crossfade */}
+            {SLIDES.map((slide, index) => (
+              <div 
+                key={slide.id}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100 z-0' : 'opacity-0 -z-10'}`}
+              >
+                {/* After Image (Background) */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center pointer-events-none"
+                  style={{ backgroundImage: `url(${slide.after})` }}
+                >
+                  <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                    ПОСЛЕ
+                  </div>
+                </div>
 
-            {/* Before Image (Clipped) */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center pointer-events-none border-r-2 border-white"
-              style={{ 
-                backgroundImage: `url(${SLIDES[currentSlide].before})`,
-                clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
-              }}
-            >
-              <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
-                ДО
+                {/* Before Image (Clipped) */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center pointer-events-none border-r-2 border-white"
+                  style={{ 
+                    backgroundImage: `url(${slide.before})`,
+                    clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
+                  }}
+                >
+                  <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                    ДО
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
 
             {/* Slider Handle */}
             <div 

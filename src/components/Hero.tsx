@@ -11,8 +11,8 @@ export default function Hero() {
           backgroundImage: "url('/kazan-hero-bg.jpg')",
         }}
       >
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/30" />
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/10" />
       </div>
 
       {/* Content */}
@@ -20,11 +20,11 @@ export default function Hero() {
         <span className="inline-block py-1 px-3 rounded-full bg-button/20 text-button border border-button/50 font-semibold mb-6 animate-pulse text-sm sm:text-base">
           Прямо от производителя
         </span>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight sm:leading-tight">
-          Премиальные мягкие окна для беседок и террас в Казани!
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight sm:leading-tight px-2">
+          Премиальные мягкие окна<br className="hidden sm:block"/> для беседок и террас в Казани!
         </h1>
-        <div className="text-base sm:text-lg md:text-2xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md space-y-2">
-          <p>Надежная защита от непогоды: ветра, дождя и снега.</p>
+        <div className="text-base sm:text-lg md:text-2xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md space-y-4 px-2">
+          <p>Надежная защита от непогоды:<br className="block sm:hidden"/> ветра, дождя и снега.</p>
           <p>Заводское качество с гарантией 5 лет.</p>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
