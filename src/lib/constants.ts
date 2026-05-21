@@ -63,14 +63,14 @@ export const GALLERY_ITEMS = [
 export const FEATURES = [
   {
     id: 1,
-    title: "Светопропускание 95%",
-    description: "Мягкие окна прозрачны как обычное стекло и не искажают вид.",
+    title: "Идеальная прозрачность",
+    description: "Светопропускание 95%. Окна не искажают вид и прозрачны, как обычное стекло.",
     icon: "Sun" // String to match dynamic icon or we can use raw text if needed
   },
   {
     id: 2,
-    title: "Защита круглый год",
-    description: "Укрывают от снега зимой, от дождя и ветра осенью, от пыли летом.",
+    title: "Комфорт в любой сезон",
+    description: "Защищают от снега зимой, от дождя и ветра осенью, от пыли и гнуса летом.",
     icon: "Shield"
   },
   {

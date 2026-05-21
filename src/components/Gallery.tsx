@@ -7,7 +7,7 @@ export default function Gallery() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Наши работы
+            Наши работы в Казани и Татарстане
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Примеры установленных мягких окон для беседок, веранд и террас.

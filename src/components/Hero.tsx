@@ -8,11 +8,10 @@ export default function Hero() {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1599580665044-f87c537ee501?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+          backgroundImage: "url('/kazan-hero-bg.jpg')",
         }}
       >
-        <div className="absolute inset-0 bg-accent/60 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
       </div>
 
       {/* Content */}
@@ -21,10 +20,10 @@ export default function Hero() {
           Прямо от производителя
         </span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-lg leading-tight">
-          Мягкие окна для вашей <br className="hidden md:block"/> беседки и террасы
+          Премиальные мягкие окна для казанских беседок и террас
         </h1>
-        <p className="text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto drop-shadow-md">
-          Продлите сезон отдыха. Защита от ветра, дождя и снега без потери панорамного вида с гарантией 5 лет.
+        <p className="text-lg md:text-2xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md">
+          Наслаждайтесь уютом в вашей зоне отдыха до самой зимы. Надежная защита от непогоды: ветра, дождя и снега. Продлите сезон до 8 месяцев в году. Заводское качество с гарантией 5 лет.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-button hover:bg-button-hover text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl">
