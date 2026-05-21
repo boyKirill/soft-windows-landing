@@ -4,13 +4,13 @@ import { Check } from 'lucide-react';
 
 export default function PriceList() {
   return (
-    <section id="pricing" className="py-24 bg-stone-50">
+    <section id="pricing" className="py-24 bg-foreground text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
             Стоимость мягких окон в Казани от производителя
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Прозрачные цены без скрытых платежей. Выберите подходящий вариант для вашего объекта.
           </p>
         </div>
