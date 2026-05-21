@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Инициализация клиента Resend
-// API Ключ должен быть добавлен в файл .env.local как RESEND_API_KEY
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Инициализация клиента Resend перенесена внутрь функции,
+// чтобы сборка (build) не падала, если переменной нет.
 
 export async function POST(request: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY || 'missing_key');
+
     const { name, phone, area } = await request.json();
 
     if (!name || !phone) {
