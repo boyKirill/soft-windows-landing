@@ -18,3 +18,18 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-sans), sans-serif;
 }
+
+.animate-slide-up-fade {
+  animation: slideUpFade 0.7s ease-out forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,18 +1,26 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, CheckCircle, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Phone, CheckCircle } from 'lucide-react';
 
 export default function ContactForm() {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [area, setArea] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const [isAgreed, setIsAgreed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [isAlreadySent, setIsAlreadySent] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && localStorage.getItem('lead_sent')) {
+      setIsAlreadySent(true);
+    }
+  }, []);
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let val = e.target.value.replace(/\D/g, '');
@@ -41,9 +49,11 @@ export default function ContactForm() {
     // Honeypot check
     if (honeypot.length > 0) {
       // Bot detected, fake success
-      setIsSubmitted(true);
+      router.push('/thanks');
       return;
     }
+
+    const cleanPhone = phone.replace(/\D/g, '');
 
     setIsSubmitting(true);
     try {
@@ -59,8 +69,17 @@ export default function ContactForm() {
         throw new Error('Network error');
       }
 
-      // window.ym(XXXXXX, 'reachGoal', 'lead');
-      setIsSubmitted(true);
+      if (cleanPhone === '79519993016' || cleanPhone === '89519993016') {
+        console.log("Тестовое письмо отправлено");
+      } else {
+        if (typeof window !== 'undefined' && typeof (window as any).ym === 'function') {
+          // TODO: Замените 'XXXXXX' на реальный ID счетчика (без кавычек, числом)
+          (window as any).ym('XXXXXX', 'reachGoal', 'lead_success');
+        }
+      }
+
+      localStorage.setItem('lead_sent', 'true');
+      router.push('/thanks');
     } catch (err) {
       console.error('Error submitting form', err);
       setError('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
@@ -91,6 +110,13 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="md:w-7/12 p-10">
+            {isAlreadySent ? (
+              <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-green-50 rounded-2xl border border-green-100">
+                <CheckCircle size={64} className="text-green-500 mb-6" />
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Заявка принята</h3>
+                <p className="text-gray-600">Вы уже оставили заявку. Мы свяжемся с вами в ближайшее время.</p>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               {/* Honeypot field */}
               <input 
@@ -169,40 +195,11 @@ export default function ContactForm() {
                 </div>
               )}
             </form>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Success Modal */}
-      {isSubmitted && (
-        <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm p-4 animate-in fade-in duration-300" 
-          onClick={() => setIsSubmitted(false)}
-        >
-          <div 
-            className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl relative animate-in zoom-in-95 duration-300"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button 
-              onClick={() => setIsSubmitted(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <X size={24} />
-            </button>
-            <div className="mx-auto w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mb-6">
-              <CheckCircle size={56} className="text-green-500" />
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">Спасибо!</h3>
-            <p className="text-gray-600">Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.</p>
-            <button 
-              onClick={() => setIsSubmitted(false)}
-              className="mt-8 w-full py-3 bg-button hover:bg-button-hover text-white rounded-xl font-bold transition-colors"
-            >
-              Закрыть
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
