@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { GALLERY_ITEMS } from '@/lib/constants';
 
 export default function Gallery() {
@@ -7,10 +8,10 @@ export default function Gallery() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Наши работы в Казани и Татарстане
+            Наши работы в Казани
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Примеры установленных мягких окон для беседок, веранд и террас.
+            Примеры установленных мягких окон для беседок, навесов и террас
           </p>
         </div>
 
@@ -20,10 +21,12 @@ export default function Gallery() {
               key={item.id} 
               className="group relative overflow-hidden rounded-3xl shadow-lg aspect-[4/3] bg-gray-200"
             >
-              <img 
+              <Image 
                 src={item.imageUrl} 
                 alt={item.title} 
-                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

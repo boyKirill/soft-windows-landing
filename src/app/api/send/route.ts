@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Мягкие окна <onboarding@resend.dev>', // Замените на ваш подтвержденный домен в Resend
-      to: ['vvkirill3@gmail.com'], // Адрес, на который зарегистрирован аккаунт Resend
+      to: ['magkieoknakazan@gmail.com'], // Адрес, на который зарегистрирован аккаунт Resend
       subject: 'Новая заявка с сайта Мягкие окна',
       html: `
         <h2>Новая заявка на расчет стоимости</h2>

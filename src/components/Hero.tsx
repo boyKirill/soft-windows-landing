@@ -21,10 +21,10 @@ export default function Hero() {
           Прямо от производителя
         </span>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg leading-tight sm:leading-tight px-2">
-          Премиальные мягкие окна<br className="hidden sm:block"/> для беседок и террас в Казани!
+          Премиальные мягкие окна<br className="hidden sm:block"/> для беседок и террас в Казани
         </h1>
         <p className="text-base sm:text-lg md:text-2xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md px-2 leading-relaxed">
-          Надежная защита от непогоды:<br className="block sm:hidden"/> ветра, дождя и снега.<br/>Заводское качество с гарантией 5 лет.
+          Надежная защита от непогоды:<br className="block sm:hidden"/> ветра, дождя и снега<br/>Отличное качество с гарантией 2 года
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-button hover:bg-button-hover text-white rounded-xl font-bold text-lg transition-all transform hover:scale-105 hover:-translate-y-1 shadow-xl">

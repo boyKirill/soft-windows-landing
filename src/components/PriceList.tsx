@@ -11,17 +11,17 @@ export default function PriceList() {
             Стоимость мягких окон в Казани от производителя
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Прозрачные цены без скрытых платежей. Выберите подходящий вариант для вашего объекта.
+            Выберите подходящий для Вас вариант
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {PRICE_LIST.map((item) => (
             <div 
               key={item.id} 
               className="flex flex-col p-8 rounded-3xl bg-background border border-gray-100 shadow-lg relative overflow-hidden"
             >
-              {item.id === 2 && (
+              {item.id === 3 && (
                 <div className="absolute top-0 right-0 bg-button text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">
                   Хит продаж
                 </div>
@@ -46,7 +46,7 @@ export default function PriceList() {
               <a 
                 href="#contact" 
                 className={`w-full py-4 rounded-xl font-bold text-center transition-colors ${
-                  item.id === 2 
+                  item.id === 3 
                     ? 'bg-button hover:bg-button-hover text-white shadow-md hover:shadow-xl transform hover:-translate-y-1' 
                     : 'bg-white border-2 border-button text-button hover:bg-button hover:text-white'
                 }`}

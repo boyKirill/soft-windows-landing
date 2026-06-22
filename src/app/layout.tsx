@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import CookieBanner from "@/components/CookieBanner";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
@@ -25,9 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <body className={`${montserrat.variable} font-sans antialiased bg-background text-foreground`}>
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

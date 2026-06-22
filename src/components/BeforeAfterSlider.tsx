@@ -1,18 +1,34 @@
 "use client";
 
 import React, { useState, useRef, MouseEvent as ReactMouseEvent, TouchEvent as ReactTouchEvent } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SLIDES = [
   {
+    id: 3,
+    before: "/compare/before-5.avif",
+    after: "/compare/after-5.avif",
+  },
+  {
     id: 1,
-    before: "/compare/1-before.jpg",
-    after: "/compare/1-after.jpg",
+    before: "/compare/before-2.avif",
+    after: "/compare/after-2.avif",
   },
   {
     id: 2,
-    before: "/compare/1-before.jpg",
-    after: "/compare/1-after.jpg",
+    before: "/compare/before-4.avif",
+    after: "/compare/after-4.avif",
+  },
+  {
+    id: 4,
+    before: "/compare/before-6.avif",
+    after: "/compare/after-6.avif",
+  },
+  {
+    id: 5,
+    before: "/compare/before-7.avif",
+    after: "/compare/after-7.avif",
   }
 ];
 
@@ -47,7 +63,7 @@ export default function BeforeAfterSlider() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Посмотрите на преображение беседки
+            Преображение наших объектов
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Передвигайте бегунок, чтобы увидеть разницу до и после установки
@@ -73,25 +89,23 @@ export default function BeforeAfterSlider() {
             >
               {SLIDES.map((slide, index) => (
                 <div key={slide.id} className="relative h-full" style={{ width: `${100 / SLIDES.length}%` }}>
-                  {/* After Image (Background) */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${slide.after})` }}
-                  >
-                    <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                  {/* After Image */}
+                  <div className="absolute inset-0">
+                    <Image src={slide.after} alt="После" fill sizes="(max-width: 768px) 100vw, 800px" className="object-cover" priority={index === 0} />
+                    <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm z-10">
                       ПОСЛЕ
                     </div>
                   </div>
 
                   {/* Before Image (Clipped) */}
                   <div 
-                    className="absolute inset-0 bg-cover bg-center border-r-2 border-white"
+                    className="absolute inset-0 border-r-2 border-white z-10"
                     style={{ 
-                      backgroundImage: `url(${slide.before})`,
                       clipPath: index === currentSlide ? `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` : `polygon(0 0, 50% 0, 50% 100%, 0 100%)`
                     }}
                   >
-                    <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm">
+                    <Image src={slide.before} alt="До" fill sizes="(max-width: 768px) 100vw, 800px" className="object-cover" priority={index === 0} />
+                    <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm z-10">
                       ДО
                     </div>
                   </div>
