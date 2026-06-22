@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
-
-const montserrat = Montserrat({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-montserrat",
-});
 
 export const metadata: Metadata = {
   title: "Мягкие окна в Казани | Продажа и монтаж ПВХ-штор",
@@ -27,7 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`${montserrat.variable} font-sans antialiased bg-background text-foreground`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+      </head>
+      <body 
+        className="font-sans antialiased bg-background text-foreground"
+        style={{ '--font-montserrat': '"Montserrat", sans-serif' } as React.CSSProperties}
+      >
         {children}
         <CookieBanner />
       </body>
