@@ -20,7 +20,7 @@ export default function ThanksPage() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/kazan-hero-bg.jpg"
+          src="/kazan-hero-bg.avif"
           alt="Фон"
           fill
           className="object-cover"
