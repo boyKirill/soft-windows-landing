@@ -1,16 +1,19 @@
 import React from 'react';
-
+import Image from 'next/image';
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-[80vh] flex items-center justify-center">
       {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/kazan-hero-bg.jpg')",
-        }}
-      >
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/kazan-hero-bg.avif"
+          alt="Мягкие окна Казань"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/10" />
       </div>

@@ -91,7 +91,7 @@ export default function BeforeAfterSlider() {
                 <div key={slide.id} className="relative h-full" style={{ width: `${100 / SLIDES.length}%` }}>
                   {/* After Image */}
                   <div className="absolute inset-0">
-                    <Image src={slide.after} alt="После" fill sizes="(max-width: 768px) 100vw, 800px" className="object-cover" priority={index === 0} />
+                    <Image src={slide.after} alt="После" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" priority={index === 0} />
                     <div className="absolute top-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm z-10">
                       ПОСЛЕ
                     </div>
@@ -104,7 +104,7 @@ export default function BeforeAfterSlider() {
                       clipPath: index === currentSlide ? `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` : `polygon(0 0, 50% 0, 50% 100%, 0 100%)`
                     }}
                   >
-                    <Image src={slide.before} alt="До" fill sizes="(max-width: 768px) 100vw, 800px" className="object-cover" priority={index === 0} />
+                    <Image src={slide.before} alt="До" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" priority={index === 0} />
                     <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-bold backdrop-blur-sm z-10">
                       ДО
                     </div>
